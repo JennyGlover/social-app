@@ -1,3 +1,25 @@
 .main{
-    background-color: red;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    
+}
+
+.main__nav{
+    display: flex;
+    gap: 20PX;
+    justify-content: center;
+    padding-top: 20PX;
+    font-size: 14PX;
+    color: rgba(0, 0, 0, 0.692);
+}
+.main__nav-post{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.main__page-icon{
+    display: inline-block;
+    background: url('../images/border-all-solid.svg') no-repeat center/cover ;
+    height: 12px;
+    width: 12px;
+    opacity: 0.6;
 }

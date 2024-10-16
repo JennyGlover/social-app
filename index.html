@@ -7,13 +7,35 @@
 </head>
 <body class="container">
     <nav class="sidebar">
-        
-            <button class="sidebar__button sidebar__button_home-button"></button>
+      <span class="sidebar__logo sidebar__button-content"> 
+            <button class="sidebar__button sidebar__button_logo-button"></button>
+            <p class="sidebar__button-description sidebar__button-description-size-xl">Social App</p>
+        </span>
+
+        <span class="sidebar__top">
+            <span class="sidebar__button-content">
+                <button class="sidebar__button sidebar__button_home-button"></button>
+                <p class="sidebar__button-description">Home</p>
+           </span>
+           <span class="sidebar__button-content">
             <button class="sidebar__button sidebar__button_search-button"></button>
+            <p class="sidebar__button-description">Search</p>
+           </span>
+           <span class="sidebar__button-content">
             <button class="sidebar__button sidebar__button_message-button"></button>
+            <p class="sidebar__button-description">Messages</p>
+           </span>
+           <span class="sidebar__button-content">
+            <button class="sidebar__button sidebar__button_profile-button"></button>
+            <p class="sidebar__button-description">Profile</p>
+           </span> </span>
             <span class="sidebar__bottom">
-                <button class="sidebar__button sidebar__button_logout-button"></button>
+               </span><span class="sidebar__button-content">
+                <button class="sidebar__button sidebar__button_logout-button"></button>  
+                <p class="sidebar__button-description">Logout</p>
+                </span>
             </span>
+          
     </nav>
      <header class="header">
         <span class="header__top_content">
@@ -52,8 +74,11 @@
 
      <main class="main">
         <nav class="main__nav">
-            <h3 class="main__nav-post">POSTS</h3>
-            <h3 class="main__nav-post">POSTS</h3>
+            <p class="main__nav-post">
+                <span class="main__page-icon main__page-icon_posts-icon  "></span>
+                POSTS</p>
+            <p class="main__nav-post"> <span class="main__page-icon main__page-icon_repost-icon "></span> REPOSTS</p>
+         
         </nav>
         <section class="cards"></section>
      </main>
