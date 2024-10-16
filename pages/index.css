@@ -28,7 +28,7 @@
 .header{
     grid-area: header;
     margin: auto;
-    width: 75%;
+    width: 80%;
     padding-top: 20px;
     padding-left: 20px;
 }
@@ -39,13 +39,13 @@
 
 .main{
     grid-area: main;
-    width: 75%;
+    width: 80%;
     margin: auto;
 }
 
 .footer{
     grid-area: footer;
-    width: 75%;
+    width: 80%;
     margin: auto;
 
 }
