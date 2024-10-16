@@ -1,17 +1,21 @@
 @import url('../blocks/header.css');
 @import url('../blocks/main.css');
 @import url('../blocks/sidebar.css');
+@import url('../blocks/card.css');
+@import url("../blocks/footer.css");
 @import url("../vendor/fonts/fonts.css");
 @import url("../vendor/fonts/normalize.css");
+
+
+
 .container{
     display: grid;
     grid-template-areas:
     "sidebar header"
     "sidebar main"
-    "sidebar main"
     "sidebar footer"
     ;
-    grid-template-columns: 1.5fr 6fr 0.5fr;
+    grid-template-columns: 2fr 6fr 0.5fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 10px;
     position: relative;
@@ -26,7 +30,7 @@
     margin: auto;
     width: 75%;
     padding-top: 20px;
-
+    padding-left: 20px;
 }
 
 .sidebar{

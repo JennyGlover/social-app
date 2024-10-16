@@ -3,23 +3,34 @@
     
 }
 
-.main__nav{
+.main__toggle{
     display: flex;
     gap: 20PX;
     justify-content: center;
     padding-top: 20PX;
     font-size: 14PX;
-    color: rgba(0, 0, 0, 0.692);
+    color: rgba(0, 0, 0, 0.76);
 }
-.main__nav-post{
+.main__toggle-items{
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 8px;
 }
-.main__page-icon{
+.main__toggle-icon{
     display: inline-block;
+    opacity: 0.5;
+}
+
+.main__toggle-icon_post {
     background: url('../images/border-all-solid.svg') no-repeat center/cover ;
     height: 12px;
     width: 12px;
-    opacity: 0.6;
+  
 }
+
+.main__toggle-icon_repost {
+    background: url('../images/retweet-solid.svg') no-repeat center/cover ;
+    height: 15px;
+    width: 15px;
+}
+

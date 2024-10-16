@@ -1,0 +1,26 @@
+
+.card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding-top: 30px;
+}
+
+.card__content{
+height:auto;
+width: 100%;
+aspect-ratio: 1;   
+
+}
+
+.card__image-container{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.021);
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.048);
+}
+
+.card__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
