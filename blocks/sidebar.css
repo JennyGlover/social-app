@@ -1,0 +1,32 @@
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    gap:20px;
+}
+.sidebar__button{
+    border: none;
+    background-color: blue;
+    width: 30px;
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+.sidebar__button_home-button{
+    background: url('../images/got-avatar.jpg') no-repeat center/cover ;
+
+}
+
+.sidebar__button_search-button{
+    background: url('../images/got-avatar.jpg') no-repeat center/cover ;
+
+}
+
+.sidebar__button_message-button{
+    background: url('../images/got-avatar.jpg') no-repeat center/cover ;
+}
+
+.sidebar__button_logout-button{
+    background: url('../images/got-avatar.jpg') no-repeat center/cover ;
+}

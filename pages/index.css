@@ -1,0 +1,36 @@
+@import url('../blocks/header.css');
+@import url('../blocks/main.css');
+@import url('../blocks/sidebar.css');
+@import url("../vendor/fonts/fonts.css");
+@import url("../vendor/fonts/normalize.css");
+.container{
+    display: grid;
+    grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar main"
+    "sidebar main"
+    ;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 2fr 3fr;
+    gap: 10px;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    color:rgba(0, 0, 0, 0.842);
+    padding-top: 20px;
+    line-height: 1.3em;
+    background-color: rgb(248, 248, 248);
+}
+
+.header{
+    grid-area: header;
+ 
+}
+
+.sidebar{
+    grid-area: sidebar;
+}
+
+.main{
+    grid-area: main;
+}
