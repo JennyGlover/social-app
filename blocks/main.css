@@ -31,3 +31,12 @@
   height: 15px;
   width: 15px;
 }
+
+.main__cards{
+    
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            padding-top: 30px;
+       
+}

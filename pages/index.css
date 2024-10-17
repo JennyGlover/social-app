@@ -34,8 +34,6 @@
 .sidebar {
   grid-area: sidebar;
 }
-.header {
-}
 
 .main {
   grid-area: main;
