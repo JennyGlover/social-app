@@ -55,14 +55,16 @@
         <span class="header__info-content">
           <nav class="header__top-nav">
             <span class="header__account-info">
-              <h2 class="header__username-about-text">gameofthrones</h2>
+              <h2 class="header__username-about-menu">gameofthrones</h2>
               <img
                 class="header__verified-icon"
                 src="./images/Twitter_Verified_Badge_Gold.png"
                 alt="verified button"
             /></span>
-            <button class="header_button">Edit Profile</button>
-            <button class="header_button">View archieve</button>
+            <button class="header__button header__button_edit-profile">
+              Edit Profile
+            </button>
+            <button class="header__button">View archieve</button>
           </nav>
           <section class="header__profile-info">
             <p class="header__followers">
@@ -107,72 +109,24 @@
       </nav>
       <section class="main__cards">
         <section class="main__card card">
-          <div class="card__content">
+          <template class="card__content">
             <div class="card__image-container">
-              <img
-                src="./images/john-snow.png"
-                alt="john snow"
-                class="card__image"
-              />
+              <img src="" alt="" class="card__image" />
             </div>
-          </div>
-          <div class="card__content">
-            <div class="card__image-container">
-              <img
-                src="./images/uncle-niece.png"
-                alt="john snow"
-                class="card__image"
-              />
-            </div>
-          </div>
-          <div class="card__content">
-            <div class="card__image-container">
-              <img
-                src="./images/sansa.png"
-                alt="john snow"
-                class="card__image"
-              />
-            </div>
-          </div>
-          <div class="card__content">
-            <div class="card__image-container">
-              <img
-                src="./images/lord-stark.png"
-                alt="john snow"
-                class="card__image"
-              />
-            </div>
-          </div>
-          <div class="card__content">
-            <div class="card__image-container">
-              <img
-                src="./images/mother-of-dragons.webp"
-                alt="john snow"
-                class="card__image"
-              />
-            </div>
-          </div>
-          <div class="card__content">
-            <div class="card__image-container">
-              <img
-                src="./images/the-army.png"
-                alt="john snow"
-                class="card__image"
-              />
-            </div>
-          </div>
+          </template>
         </section>
       </section>
     </main>
     <section class="modal">
       <div class="modal__container">
-        <button class="modal__close-button">x</button>
+        <button class="modal__close-button"></button>
         <form class="modal__profile-edit-form">
+          <p class="modal__form-title">Edit Your Profile</p>
           <fieldset class="modal__inputs">
-            <h3 class="modal__form-title">Edit Your Profile Information</h3>
-
             <span class="modal__profile-item">
-              <label for="owner-account-name" class="modal__account-name-label"
+              <label
+                for="owner-account-name"
+                class="modal__input-label modal__account-name-label"
                 >Account name</label
               >
               <input
@@ -181,50 +135,69 @@
                 name="owner-username"
                 class="modal__form-item modal__username-input"
                 placeholder="Edit your account name"
+                required
+                maxlength="13"
             /></span>
             <span class="modal__profile-item">
-              <label for="account-type" class="modal__account-type-label"
+              <label class="modal__input-label modal__account-type-label"
                 >What best describes you?</label
               >
               <select
                 name="account-type"
                 id="account-type"
                 class="modal__form-item modal__account-type"
+                placeholder="select"
+                required
               >
-                <option value="" class="modal__acount-type-option">
+                <option
+                  value=""
+                  disabled
+                  selected
+                  class="modal__acount-type-option"
+                >
+                  Select
+                </option>
+                <option value="Personal Blog" class="modal__acount-type-option">
                   Personal Blog
                 </option>
-                <option value="" class="modal__acount-type-option">
+                <option value="Influencer" class="modal__acount-type-option">
                   Influencer
                 </option>
-                <option value="" class="modal__acount-type-option">
+                <option value="Artist" class="modal__acount-type-option">
                   Artist
                 </option>
-                <option value="" class="modal__acount-type-option">
+                <option value="Musician" class="modal__acount-type-option">
                   Musician
                 </option>
-                <option value="" class="modal__acount-type-option">
+                <option value="Brand Page" class="modal__acount-type-option">
                   Brand Page
                 </option>
-                <option value="" class="modal__acount-type-option">
+                <option value=" TV Show" class="modal__acount-type-option">
                   TV Show
                 </option>
-                <option value="" class="modal__acount-type-option">
+                <option value="Movie" class="modal__acount-type-option">
                   Movie
                 </option>
               </select>
             </span>
             <span class="modal__profile-item">
-              <label for="owner-bio" class="modal__bio-label">Bio</label>
+              <label
+                for=" owner-bio"
+                class="modal__input-label modal__bio-label"
+                >Bio</label
+              >
               <textarea
                 type="text-area"
                 id="owner-bio"
                 name="owner-bio"
                 class="modal__form-item modal__bio-input"
                 placeholder="What inspires you?"
+                required
+                maxlength="110"
               ></textarea>
             </span>
           </fieldset>
+          <button type="submit" class="modal__form-button">Save</button>
         </form>
       </div>
     </section>

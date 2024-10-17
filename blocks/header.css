@@ -32,8 +32,8 @@
   padding-right: 20px;
 }
 
-.header__username-about-text {
-  font-weight: 200;
+.header__username-about-menu {
+  font-weight: 400;
 }
 .header__avatar-containder {
   height: 140px;
@@ -47,15 +47,16 @@
   width: 20px;
 }
 
-.header_button {
+.header__button {
   padding: 2px 20px;
   border: 0.5px solid rgba(0, 0, 0, 0.048);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.014);
   height: 40px;
   font-size: 14px;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.808);
+  cursor: pointer;
 }
 
 .header__button_color_blue {
