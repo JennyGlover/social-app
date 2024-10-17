@@ -1,0 +1,10 @@
+{
+  "name": "social-app",
+  "version": "1.0.0",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,css}\""
+  },
+  "devDependencies": {
+    "prettier": "^2.8.0"
+  }
+}

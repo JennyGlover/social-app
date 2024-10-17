@@ -1,111 +1,174 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Social App</title>
-    <link rel="stylesheet" href="pages/index.css">
-</head>
-<body class="container">
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body class="container">
     <nav class="sidebar">
-      <span class="sidebar__logo sidebar__button-content"> 
-            <button class="sidebar__button sidebar__button_logo-button"></button>
-            <p class="sidebar__button-description sidebar__button-description-size-xl">Social App</p>
+      <span class="sidebar__logo sidebar__button-content">
+        <button class="sidebar__button sidebar__button_logo-button"></button>
+        <p
+          class="sidebar__button-description sidebar__button-description-size-xl"
+        >
+          Social App
+        </p>
+      </span>
+
+      <span class="sidebar__top">
+        <span class="sidebar__button-content">
+          <button class="sidebar__button sidebar__button_home-button"></button>
+          <p class="sidebar__button-description">Home</p>
         </span>
-
-        <span class="sidebar__top">
-            <span class="sidebar__button-content">
-                <button class="sidebar__button sidebar__button_home-button"></button>
-                <p class="sidebar__button-description">Home</p>
-           </span>
-           <span class="sidebar__button-content">
-            <button class="sidebar__button sidebar__button_search-button"></button>
-            <p class="sidebar__button-description">Search</p>
-           </span>
-           <span class="sidebar__button-content">
-            <button class="sidebar__button sidebar__button_message-button"></button>
-            <p class="sidebar__button-description">Messages</p>
-           </span>
-           <span class="sidebar__button-content">
-            <button class="sidebar__button sidebar__button_profile-button"></button>
-            <p class="sidebar__button-description">Profile</p>
-           </span> </span>
-            <span class="sidebar__bottom">
-               </span><span class="sidebar__button-content">
-                <button class="sidebar__button sidebar__button_logout-button"></button>  
-                <p class="sidebar__button-description">Logout</p>
-                </span>
-            </span>
-          
+        <span class="sidebar__button-content">
+          <button
+            class="sidebar__button sidebar__button_search-button"
+          ></button>
+          <p class="sidebar__button-description">Search</p>
+        </span>
+        <span class="sidebar__button-content">
+          <button
+            class="sidebar__button sidebar__button_message-button"
+          ></button>
+          <p class="sidebar__button-description">Messages</p>
+        </span>
+        <span class="sidebar__button-content">
+          <button
+            class="sidebar__button sidebar__button_profile-button"
+          ></button>
+          <p class="sidebar__button-description">Profile</p>
+        </span>
+      </span>
+      <span class="sidebar__bottom">
+        <span class="sidebar__button-content">
+          <button
+            class="sidebar__button sidebar__button_logout-button"
+          ></button>
+          <p class="sidebar__button-description">Logout</p>
+        </span>
+      </span>
     </nav>
-     <header class="header">
-        <span class="header__top_content">
-        <div class="header__avatar-containder">
-            
-           </div>   
-           <span class="header__info-content">
-        <nav class="header__top-nav">
-          <span class="header__account-info">
-           <h2 class="header__username-about-text">gameofthrones</h2>
-           <img class="header__verified-icon" src="./images/Twitter_Verified_Badge_Gold.png" alt="verified button"></span>
-           <button class="header_button">Edit Profile</button>
-           <button class="header_button ">View archieve</button>  </nav>
-        <section class="header__profile-info">
-            <p class="header__followers"><span class="header__follower-count">200</span> followers</p>
-             <p class="header__username">gameofthrones</p>
-             
-             <p class="header__profile-type">TV show</p>
-            <p class="header__profile-bio">All Must Choose. The @HBO original series #HouseoftheDragon Season 2 is now streaming on @StreamonMax. #HOTD</p>
-      </section> </span> </span>
-        <section class="header__story-archive">
-            <div class="header__story-preview">
-                <div class="header__story-circle"></div>
-                <div class="header__story-title">Who said it?</div>
-            </div>
-            <div class="header__story-preview">
-                <div class="header__story-circle"></div>
-                <div class="header__story-title">Fun Facts</div>
-            </div>
-            <div class="header__story-preview">
-                <div class="header__story-circle"></div>
-                <div class="header__story-title">The North</div>
-            </div>
-        </section>
-     </header>
+    <header class="header">
+      <span class="header__top_content">
+        <div class="header__avatar-containder"></div>
+        <span class="header__info-content">
+          <nav class="header__top-nav">
+            <span class="header__account-info">
+              <h2 class="header__username-about-text">gameofthrones</h2>
+              <img
+                class="header__verified-icon"
+                src="./images/Twitter_Verified_Badge_Gold.png"
+                alt="verified button"
+            /></span>
+            <button class="header_button">Edit Profile</button>
+            <button class="header_button">View archieve</button>
+          </nav>
+          <section class="header__profile-info">
+            <p class="header__followers">
+              <span class="header__follower-count">200</span> followers
+            </p>
+            <p class="header__username">gameofthrones</p>
 
-     <main class="main">
-        <nav class="main__toggle">
-            <p class="main__toggle-items">
-                <span class="main__toggle-icon main__toggle-icon_post"></span>
-                POSTS</p>
-            <p class="main__toggle-items"> <span class="main__toggle-icon main__toggle-icon_repost"></span> REPOSTS</p>
-        </nav>
-        <section class="main__cards">
-            <section class="main__card card">
-                <div class="card__content">
-                    <div class="card__image-container"> <img src=".//images/john-snow.png" alt="john snow" class="card__image"></div>
-                </div>
-                <div class="card__content">
-                    <div class="card__image-container"> <img src=".//images/uncle-niece.png" alt="john snow" class="card__image"></div>
-                </div>
-                <div class="card__content">
-                    <div class="card__image-container"> <img src=".//images/sansa.png" alt="john snow" class="card__image"></div>
-                </div>
-                <div class="card__content">
-                    <div class="card__image-container"> <img src=".//images/lord-stark.png" alt="john snow" class="card__image"></div>
-                </div>
-                <div class="card__content">
-                    <div class="card__image-container"> <img src=".//images/mother-of-dragons.webp" alt="john snow" class="card__image"></div>
-                </div>
-                <div class="card__content">
-                    <div class="card__image-container"> <img src=".//images/the-army.png" alt="john snow" class="card__image"></div>
-                </div>
-            </section>
-        </section>
-     </main>
-     <footer class="footer">
-        <p class="footer__text">© 2024 Social App</p>
-     </footer>
+            <p class="header__profile-type">TV show</p>
+            <p class="header__profile-bio">
+              All Must Choose. The @HBO original series #HouseoftheDragon Season
+              2 is now streaming on @StreamonMax. #HOTD
+            </p>
+          </section>
+        </span>
+      </span>
+      <section class="header__story-archive">
+        <div class="header__story-preview">
+          <div class="header__story-circle"></div>
+          <div class="header__story-title">Who said it?</div>
+          s
+        </div>
+        <div class="header__story-preview">
+          <div class="header__story-circle"></div>
+          <div class="header__story-title">Fun Facts</div>
+        </div>
+        <div class="header__story-preview">
+          <div class="header__story-circle"></div>
+          <div class="header__story-title">The North</div>
+        </div>
+      </section>
+    </header>
 
-     <script src="./scripts/script.js"></script>
-</body>
+    <main class="main">
+      <nav class="main__toggle">
+        <p class="main__toggle-items">
+          <span class="main__toggle-icon main__toggle-icon_post"></span>
+          POSTS
+        </p>
+        <p class="main__toggle-items">
+          <span class="main__toggle-icon main__toggle-icon_repost"></span>
+          REPOSTS
+        </p>
+      </nav>
+      <section class="main__cards">
+        <section class="main__card card">
+          <div class="card__content">
+            <div class="card__image-container">
+              <img
+                src="./images/john-snow.png"
+                alt="john snow"
+                class="card__image"
+              />
+            </div>
+          </div>
+          <div class="card__content">
+            <div class="card__image-container">
+              <img
+                src="./images/uncle-niece.png"
+                alt="john snow"
+                class="card__image"
+              />
+            </div>
+          </div>
+          <div class="card__content">
+            <div class="card__image-container">
+              <img
+                src="./images/sansa.png"
+                alt="john snow"
+                class="card__image"
+              />
+            </div>
+          </div>
+          <div class="card__content">
+            <div class="card__image-container">
+              <img
+                src="./images/lord-stark.png"
+                alt="john snow"
+                class="card__image"
+              />
+            </div>
+          </div>
+          <div class="card__content">
+            <div class="card__image-container">
+              <img
+                src="./images/mother-of-dragons.webp"
+                alt="john snow"
+                class="card__image"
+              />
+            </div>
+          </div>
+          <div class="card__content">
+            <div class="card__image-container">
+              <img
+                src="./images/the-army.png"
+                alt="john snow"
+                class="card__image"
+              />
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">© 2024 Social App</p>
+    </footer>
+
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>

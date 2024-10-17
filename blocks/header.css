@@ -1,103 +1,101 @@
-
-.header{
-    padding-bottom: 30px;
+.header {
+  padding-bottom: 30px;
 }
 
-.sidebar{
-  
+.sidebar {
 }
 
-
-.header__top-nav{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-bottom: 10px;
+.header__top-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
 }
 
-.header__top_content{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
-    margin-left: 20px;
-    padding-bottom:60px ;
+.header__top_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  margin-left: 20px;
+  padding-bottom: 60px;
 }
 
-.header__info-content{
+.header__info-content {
   width: 60%;
 }
 
-.header__account-info{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding-right: 20px;
-
+.header__account-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 20px;
 }
 
-.header__username-about-text{
-    font-weight: 200;
+.header__username-about-text {
+  font-weight: 200;
 }
-.header__avatar-containder{
-    height: 140px;
-    width: 140px;
-    background-color: black;
-    border-radius: 100%;
-    background: url('../images/got-avatar.jpg') no-repeat center/cover ;
-}
-
-.header__verified-icon{
-    width: 20px;
+.header__avatar-containder {
+  height: 140px;
+  width: 140px;
+  background-color: black;
+  border-radius: 100%;
+  background: url('../images/got-avatar.jpg') no-repeat center/cover;
 }
 
-.header_button{
-    padding: 2px 20px;
-    border: 0.5px solid rgba(0, 0, 0, 0.048);
-    border-radius: 8px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.014);
-    height: 40px;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.808);
+.header__verified-icon {
+  width: 20px;
 }
 
-.header__button_color_blue{
-    background-color: #2788e2;
-    color: rgba(255, 255, 255, 0.808);
+.header_button {
+  padding: 2px 20px;
+  border: 0.5px solid rgba(0, 0, 0, 0.048);
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.014);
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.808);
 }
 
-.header__profile-info{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.header__button_color_blue {
+  background-color: #2788e2;
+  color: rgba(255, 255, 255, 0.808);
 }
 
-.header__username, .header__follower-count{
-    font-weight: 600;
-}
-.header__username, .header__followers{
-    padding-bottom: 14px;
-}
-
-.header__followers{
-    font-size: 17px;
-}
-.header__profile-type{
-    color: rgba(0, 0, 0, 0.473);
+.header__profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.header__story-archive{
-    display: flex;
-    gap: 10%;
+.header__username,
+.header__follower-count {
+  font-weight: 600;
+}
+.header__username,
+.header__followers {
+  padding-bottom: 14px;
 }
 
-.header__story-circle{
-    height: 80px;
-    width: 80px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.349);
-    border-radius: 100%;
-    border: 4px solid rgb(233, 229, 229);
-    background: url('../images/the-iron-throne.png') no-repeat center/cover ;
-    margin-bottom: 18px;
+.header__followers {
+  font-size: 17px;
+}
+.header__profile-type {
+  color: rgba(0, 0, 0, 0.473);
+}
+
+.header__story-archive {
+  display: flex;
+  gap: 10%;
+}
+
+.header__story-circle {
+  height: 80px;
+  width: 80px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.349);
+  border-radius: 100%;
+  border: 4px solid rgb(233, 229, 229);
+  background: url('../images/the-iron-throne.png') no-repeat center/cover;
+  margin-bottom: 18px;
 }

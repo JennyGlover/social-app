@@ -1,36 +1,33 @@
-.main{
-    border-top: 1px solid rgba(0, 0, 0, 0.16);
-    
+.main {
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
 }
 
-.main__toggle{
-    display: flex;
-    gap: 20PX;
-    justify-content: center;
-    padding-top: 20PX;
-    font-size: 14PX;
-    color: rgba(0, 0, 0, 0.76);
+.main__toggle {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.76);
 }
-.main__toggle-items{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.main__toggle-items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.main__toggle-icon{
-    display: inline-block;
-    opacity: 0.5;
+.main__toggle-icon {
+  display: inline-block;
+  opacity: 0.5;
 }
 
 .main__toggle-icon_post {
-    background: url('../images/border-all-solid.svg') no-repeat center/cover ;
-    height: 12px;
-    width: 12px;
-  
+  background: url('../images/border-all-solid.svg') no-repeat center/cover;
+  height: 12px;
+  width: 12px;
 }
 
 .main__toggle-icon_repost {
-    background: url('../images/retweet-solid.svg') no-repeat center/cover ;
-    height: 15px;
-    width: 15px;
+  background: url('../images/retweet-solid.svg') no-repeat center/cover;
+  height: 15px;
+  width: 15px;
 }
-
