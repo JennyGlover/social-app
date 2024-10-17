@@ -82,7 +82,6 @@
         <div class="header__story-preview">
           <div class="header__story-circle"></div>
           <div class="header__story-title">Who said it?</div>
-          s
         </div>
         <div class="header__story-preview">
           <div class="header__story-circle"></div>
@@ -165,6 +164,70 @@
         </section>
       </section>
     </main>
+    <section class="modal">
+      <div class="modal__container">
+        <button class="modal__close-button">x</button>
+        <form class="modal__profile-edit-form">
+          <fieldset class="modal__inputs">
+            <h3 class="modal__form-title">Edit Your Profile Information</h3>
+
+            <span class="modal__profile-item">
+              <label for="owner-account-name" class="modal__account-name-label"
+                >Account name</label
+              >
+              <input
+                type="text"
+                id="owner-username"
+                name="owner-username"
+                class="modal__form-item modal__username-input"
+                placeholder="Edit your account name"
+            /></span>
+            <span class="modal__profile-item">
+              <label for="account-type" class="modal__account-type-label"
+                >What best describes you?</label
+              >
+              <select
+                name="account-type"
+                id="account-type"
+                class="modal__form-item modal__account-type"
+              >
+                <option value="" class="modal__acount-type-option">
+                  Personal Blog
+                </option>
+                <option value="" class="modal__acount-type-option">
+                  Influencer
+                </option>
+                <option value="" class="modal__acount-type-option">
+                  Artist
+                </option>
+                <option value="" class="modal__acount-type-option">
+                  Musician
+                </option>
+                <option value="" class="modal__acount-type-option">
+                  Brand Page
+                </option>
+                <option value="" class="modal__acount-type-option">
+                  TV Show
+                </option>
+                <option value="" class="modal__acount-type-option">
+                  Movie
+                </option>
+              </select>
+            </span>
+            <span class="modal__profile-item">
+              <label for="owner-bio" class="modal__bio-label">Bio</label>
+              <textarea
+                type="text-area"
+                id="owner-bio"
+                name="owner-bio"
+                class="modal__form-item modal__bio-input"
+                placeholder="What inspires you?"
+              ></textarea>
+            </span>
+          </fieldset>
+        </form>
+      </div>
+    </section>
     <footer class="footer">
       <p class="footer__text">© 2024 Social App</p>
     </footer>
