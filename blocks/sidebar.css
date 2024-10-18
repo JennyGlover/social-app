@@ -2,15 +2,37 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  gap: 60px;
-  margin-left: 35px;
+  gap: 40%;
+  margin-left: 20px;
   height: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-right: 1px solid rgba(0, 0, 0, 0.16);
   padding-right: 5%;
 }
 .sidebar__logo {
   padding-top: 30px;
+  display: flex;
+    gap: 10px;
+    font-size: 14px;
+    align-items: center;
+    padding-bottom: 95px;
+}
+
+.sidebar__button-content {
+  display: flex;
+  gap: 5px;
+  font-size: 14px;
+  align-items: center;
+  padding: 10px 50px 10px 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+
+.sidebar__button-content:hover {
+  background-color: rgba(0, 0, 0, 0.062);
+  border-radius: 10px;
+  transform: scale(1.02);
 }
 
 .sidebar__button {
@@ -20,25 +42,17 @@
   padding-bottom: 10px;
   opacity: 0.91;
   transition: transform 0.2s ease;
-  cursor: pointer;
 }
-
+/* 
 .sidebar__button:hover{
  transform: scale(1.15);
-}
+} */
 
-.sidebar__button-content {
-  display: flex;
-  gap: 10px;
-  font-size: 14px;
-  align-items: center;
-  padding-bottom: 30px;
-}
 
 .sidebar__top {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 .sidebar__button_logo-button {
   background: url('../images/icons-solid.svg') no-repeat center/cover;

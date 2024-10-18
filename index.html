@@ -7,37 +7,41 @@
   </head>
   <body class="container">
     <nav class="sidebar">
-      <span class="sidebar__logo sidebar__button-content">
-        <button class="sidebar__button sidebar__button_logo-button"></button>
-        <p
-          class="sidebar__button-description sidebar__button-description-size-xl"
-        >
-          Social App
-        </p>
-      </span>
+      <span>
+        <span class="sidebar__logo">
+          <button class="sidebar__button sidebar__button_logo-button"></button>
+          <p
+            class="sidebar__button-description sidebar__button-description-size-xl"
+          >
+            Social App
+          </p>
+        </span>
 
-      <span class="sidebar__top">
-        <span class="sidebar__button-content">
-          <button class="sidebar__button sidebar__button_home-button"></button>
-          <p class="sidebar__button-description">Home</p>
-        </span>
-        <span class="sidebar__button-content">
-          <button
-            class="sidebar__button sidebar__button_search-button"
-          ></button>
-          <p class="sidebar__button-description">Search</p>
-        </span>
-        <span class="sidebar__button-content">
-          <button
-            class="sidebar__button sidebar__button_message-button"
-          ></button>
-          <p class="sidebar__button-description">Messages</p>
-        </span>
-        <span class="sidebar__button-content">
-          <button
-            class="sidebar__button sidebar__button_profile-button"
-          ></button>
-          <p class="sidebar__button-description">Profile</p>
+        <span class="sidebar__top">
+          <span class="sidebar__button-content">
+            <button
+              class="sidebar__button sidebar__button_home-button"
+            ></button>
+            <p class="sidebar__button-description">Home</p>
+          </span>
+          <span class="sidebar__button-content">
+            <button
+              class="sidebar__button sidebar__button_search-button"
+            ></button>
+            <p class="sidebar__button-description">Search</p>
+          </span>
+          <span class="sidebar__button-content">
+            <button
+              class="sidebar__button sidebar__button_message-button"
+            ></button>
+            <p class="sidebar__button-description">Messages</p>
+          </span>
+          <span class="sidebar__button-content">
+            <button
+              class="sidebar__button sidebar__button_profile-button"
+            ></button>
+            <p class="sidebar__button-description">Profile</p>
+          </span>
         </span>
       </span>
       <span class="sidebar__bottom">
@@ -64,7 +68,9 @@
             <button class="header__button header__button_edit-profile">
               Edit Profile ✏️
             </button>
-            <button class="header__button">Add Post 🖼️</button>
+            <button class="header__button header__button_color_blue">
+              Add Post 🖼️
+            </button>
           </nav>
           <section class="header__profile-info">
             <p class="header__followers">
@@ -195,6 +201,10 @@
     </section>
     <template class="card" id="image-cards">
       <div class="card__content">
+        <div class="card__overlay">
+          <p class="card__likes"></p>
+          <p class="card__comments"></p>
+        </div>
         <div class="card__image-container">
           <img src="" alt="" class="card__image" />
         </div>
