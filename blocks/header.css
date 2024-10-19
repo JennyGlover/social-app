@@ -64,11 +64,11 @@
   background-color: #e7e7e7  ;
 }
 
-.header__button_color_blue {
+.header__button_add-post {
   background-color: #2788e2;
   color: rgba(255, 255, 255, 0.808);
 }
-.header__button_color_blue:hover {
+.header__button_add-post:hover {
   background-color: #257dcf;
 }
 
