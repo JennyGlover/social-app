@@ -31,8 +31,11 @@ const placeHolderImages = [
 const container = document.querySelector('.container');
 const header = container.querySelector('.header');
 const profileEditBtn = header.querySelector('.header__button_edit-profile');
+const addPostBtn = header.querySelector('.header__button_add-post')
 const profilePopup = container.querySelector('.modal');
 const profilePopupContainer = profilePopup.querySelector('.modal__container');
+const imageUploadPopup = container.querySelector('.image-upload-modal');
+
 const profilePopupCloseBtn = profilePopupContainer.querySelector(
   '.modal__close-button'
 );
@@ -57,6 +60,14 @@ profileEditBtn.addEventListener('click', function () {
 profilePopupCloseBtn.addEventListener('click', function () {
   profilePopup.classList.remove('modal__modal-opened');
 });
+
+//listening for click on add post button
+addPostBtn.addEventListener('click', function (){
+  imageUploadPopup.classList.add('image-upload-modal__modal-opened');
+}
+);
+
+
 
 //function for submitting profile form
 function handleProfileSubmitForm(evt) {
