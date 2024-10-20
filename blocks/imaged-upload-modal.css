@@ -97,3 +97,7 @@
 .image-upload-modal__button_type_visible {
   display: block;
 }
+
+.red {
+  background-color: red;
+}

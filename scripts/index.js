@@ -110,16 +110,15 @@ function handleImageUpload(evt) {
   //trying to reset image - work on this//
 
   const imageInput = evt.target;
-
   //checking if there was a file uploaded
   if (imageInput.files && imageInput.files[0]) {
-    const reader = new FileReader();
+    const reader = new FileReader(); //ceating a new instance of the file reader
 
     //setting the image src to the uploaded file
     reader.onload = function (e) {
-      uploadedImage.src = e.target.result;
-      uploadedImage.classList.add('image-upload-modal__image-file');
-      imageUploadbtn.classList.add('image-upload-modal__button_type_visible');
+      imageUploadbtn.classList.add('image-upload-modal__button_type_visible'); //making upload btn visible
+      uploadedImage.src = e.target.result; //changing the cam icon to the uploaded img
+      uploadedImage.classList.add('image-upload-modal__image-file'); //styling new img
       imageUploadbtn.addEventListener('click', function () {
         imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
         const cardElement = document
@@ -131,12 +130,17 @@ function handleImageUpload(evt) {
         cardContainer.prepend(cardElement);
         uploadedImage.src = '../images/upload image.jpg';
         imageInput.value = '';
+        imageUploadbtn.classList.remove(
+          'image-upload-modal__button_type_visible'
+        );
+        uploadedImage.classList.remove('image-upload-modal__image-file');
       });
     };
 
     //Reading the uploaded file as a data url
     reader.readAsDataURL(imageInput.files[0]);
     uploadedImage.src = '../images/upload image.jpg';
+    e.target.result = '';
     // reader.onloadend = function (){
     //   // uploadedImage.src = '../images/upload image.jpg';
     //   uploadedImage.classList.remove('image-upload-modal__image-file');
