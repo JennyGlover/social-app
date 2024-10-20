@@ -1,8 +1,5 @@
 const placeHolderImages = [
- 
-
- 
- {
+  {
     name: 'Sansa',
     link: './images/sansa.png',
   },
@@ -17,27 +14,31 @@ const placeHolderImages = [
   {
     name: 'Uncle & Niece',
     link: './images/uncle-niece.png',
-  }, {
+  },
+  {
     name: 'lord Stark',
     link: './images/lord-stark.png',
-  },{
+  },
+  {
     name: 'The Army',
     link: './images/the-army.png',
   },
-  
 ];
 
 //selecting elements from html
 const container = document.querySelector('.container');
 const header = container.querySelector('.header');
 const profileEditBtn = header.querySelector('.header__button_edit-profile');
-const addPostBtn = header.querySelector('.header__button_add-post')
+const addPostBtn = header.querySelector('.header__button_add-post');
 const profilePopup = container.querySelector('.modal');
 const profilePopupContainer = profilePopup.querySelector('.modal__container');
 const imageUploadPopup = container.querySelector('.image-upload-modal');
 
 const profilePopupCloseBtn = profilePopupContainer.querySelector(
   '.modal__close-button'
+);
+const imageUploadPopupCloseBtn = imageUploadPopup.querySelector(
+  '.image-upload-modal__close-button'
 );
 const profileForm = profilePopupContainer.querySelector(
   '.modal__profile-edit-form'
@@ -50,7 +51,16 @@ const headerBio = header.querySelector('.header__profile-bio');
 const headerProfileType = header.querySelector('.header__profile-type');
 const headerUsername = header.querySelector('.header__username');
 const headerUsernameMenu = header.querySelector('.header__username-about-menu');
-const cardContainer = container.querySelector(".main__cards");
+const cardContainer = container.querySelector('.main__cards');
+const uploadedImage = imageUploadPopup.querySelector(
+  '.image-upload-modal__image'
+);
+const imageUploadInput = imageUploadPopup.querySelector(
+  '.image-upload-modal__file-input'
+);
+const imageUploadbtn = imageUploadPopup.querySelector(
+  '.image-upload-modal__button'
+);
 
 //listening for and opening and closing popup button
 profileEditBtn.addEventListener('click', function () {
@@ -62,12 +72,13 @@ profilePopupCloseBtn.addEventListener('click', function () {
 });
 
 //listening for click on add post button
-addPostBtn.addEventListener('click', function (){
+addPostBtn.addEventListener('click', function () {
   imageUploadPopup.classList.add('image-upload-modal__modal-opened');
-}
-);
+});
 
-
+imageUploadPopupCloseBtn.addEventListener('click', function () {
+  imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
+});
 
 //function for submitting profile form
 function handleProfileSubmitForm(evt) {
@@ -83,13 +94,48 @@ function getCardElement(data) {
   const cardElement = document
     .querySelector('#image-cards')
     .content.cloneNode(true);
- cardElement.querySelector('.card__image').src = `${data.link}`;
- cardElement.querySelector('.card__image').alt = `${data.name}`;
-return cardElement;
+  cardElement.querySelector('.card__image').src = `${data.link}`;
+  cardElement.querySelector('.card__image').alt = `${data.name}`;
+  return cardElement;
 }
 
 profileForm.addEventListener('submit', handleProfileSubmitForm);
 
-for (let data of placeHolderImages){
-   cardContainer.append(getCardElement(data))
+for (let data of placeHolderImages) {
+  cardContainer.append(getCardElement(data));
 }
+
+//function for uploading new image from file
+function handleImageUpload(evt) {
+  //trying to reset image//
+  uploadedImage.src = '../images/upload image.jpg';
+
+  const imageInput = evt.target;
+
+  //checking if there was a file uploaded
+  if (imageInput.files && imageInput.files[0]) {
+    const reader = new FileReader();
+
+    //setting the image src to the uploaded file
+    reader.onload = function (e) {
+      uploadedImage.src = e.target.result;
+      uploadedImage.classList.add('image-upload-modal__image-file');
+      imageUploadbtn.classList.add('image-upload-modal__button_type_visible');
+      imageUploadbtn.addEventListener('click', function () {
+        imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
+        const cardElement = document
+          .querySelector('#image-cards')
+          .content.cloneNode(true);
+        cardElement.querySelector('.card__image').src = e.target.result;
+        // cardElement.querySelector('.card__image').alt = `${data.name}`;
+        // return cardElement;
+        cardContainer.prepend(cardElement);
+      });
+    };
+
+    //Reading the uploaded file as a data url
+    reader.readAsDataURL(imageInput.files[0]);
+  }
+}
+
+imageUploadInput.addEventListener('change', handleImageUpload);

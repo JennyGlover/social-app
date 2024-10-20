@@ -48,8 +48,8 @@
   margin: auto;
 }
 
-@media screen and (max-width:1280px) {
-    .container{
-        grid-template-columns: 1fr 6fr;
-    }
+@media screen and (max-width: 1280px) {
+  .container {
+    grid-template-columns: 1fr 6fr;
+  }
 }

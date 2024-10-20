@@ -12,10 +12,10 @@
 .sidebar__logo {
   padding-top: 30px;
   display: flex;
-    gap: 10px;
-    font-size: 14px;
-    align-items: center;
-    padding-bottom: 95px;
+  gap: 10px;
+  font-size: 14px;
+  align-items: center;
+  padding-bottom: 95px;
 }
 
 .sidebar__button-content {
@@ -27,7 +27,6 @@
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-
 
 .sidebar__button-content:hover {
   background-color: rgba(0, 0, 0, 0.062);
@@ -47,7 +46,6 @@
 .sidebar__button:hover{
  transform: scale(1.15);
 } */
-
 
 .sidebar__top {
   display: flex;

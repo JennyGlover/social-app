@@ -204,11 +204,20 @@
     <section class="image-upload-modal">
       <div class="image-upload-modal__container">
         <button class="image-upload-modal__close-button"></button>
-        <form class="image-upload-modal__profile-edit-form">
-          <fieldset class="image-upload-modal__input">
-            <p class="mage-upload-modal__form-title">Upload a new image</p>
-          </fieldset>
-        </form>
+        <div class="image-upload-modal__block">
+          <p class="image-upload-modal__form-title">Upload a new image</p>
+          <img
+            src="images/upload image.jpg"
+            alt="upload image"
+            class="image-upload-modal__image"
+          />
+          <input
+            type="file"
+            class="image-upload-modal__file-input"
+            accept="image/*"
+          />
+          <button class="image-upload-modal__button">Post Image</button>
+        </div>
       </div>
     </section>
     <template class="card" id="image-cards">

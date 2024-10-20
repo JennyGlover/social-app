@@ -18,13 +18,13 @@
   color: rgba(0, 0, 0, 0.76);
 }
 
-.main__toggle-items:hover{
-   transform: scale(1.02);
-    color: rgba(0, 0, 0, 0.842);
+.main__toggle-items:hover {
+  transform: scale(1.02);
+  color: rgba(0, 0, 0, 0.842);
 }
 
-.main__toggle-items__border-top{
-    border-top: 0.5px solid rgba(0, 0, 0, 0.096);
+.main__toggle-items__border-top {
+  border-top: 0.5px solid rgba(0, 0, 0, 0.096);
 }
 
 .main__toggle-icon {
@@ -44,11 +44,9 @@
   width: 15px;
 }
 
-.main__cards{
-    
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
-            padding-top: 30px;
-       
+.main__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding-top: 30px;
 }

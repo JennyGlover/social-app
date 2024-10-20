@@ -21,7 +21,7 @@
   transform: translate(-50%, -50%);
   width: 450px;
   height: 540px;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .modal__close-button {
@@ -95,7 +95,7 @@
 .modal__form-button {
   padding: 2px 40px;
   border: 0.5px solid rgba(0, 0, 0, 0.048);
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.014);
   height: 40px;
   font-size: 14px;
