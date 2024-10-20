@@ -107,8 +107,7 @@ for (let data of placeHolderImages) {
 
 //function for uploading new image from file
 function handleImageUpload(evt) {
-  //trying to reset image//
-  uploadedImage.src = '../images/upload image.jpg';
+  //trying to reset image - work on this//
 
   const imageInput = evt.target;
 
@@ -130,11 +129,19 @@ function handleImageUpload(evt) {
         // cardElement.querySelector('.card__image').alt = `${data.name}`;
         // return cardElement;
         cardContainer.prepend(cardElement);
+        uploadedImage.src = '../images/upload image.jpg';
+        imageInput.value = '';
       });
     };
 
     //Reading the uploaded file as a data url
     reader.readAsDataURL(imageInput.files[0]);
+    uploadedImage.src = '../images/upload image.jpg';
+    // reader.onloadend = function (){
+    //   // uploadedImage.src = '../images/upload image.jpg';
+    //   uploadedImage.classList.remove('image-upload-modal__image-file');
+    // imageUploadbtn.classList.remove('image-upload-modal__button_type_visible');
+    // }
   }
 }
 
