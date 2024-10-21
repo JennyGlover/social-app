@@ -53,6 +53,8 @@
 .image-display-modal__user-interaction-container{
         min-width: 40%;
         background-color: rgb(255, 255, 255);
+        padding: 15px;
+        
 }
 
 .image-display-modal__image {
@@ -61,7 +63,38 @@
 
 }
 
+.image-display-modal__user-icon{
+        padding: 18px;
+        background-color: black;
+        border-radius: 100%;
+        background: url('../images/got-avatar.jpg') no-repeat center/cover;       
+}
+.image-display-modal__avatar-and-name-container{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.image-display-modal__caption-comment-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.image-display-modal__user-info{
+    display: flex;
+    align-items: center;
+     gap: 5px;
+}
 
+.image-display-modal__verified-icon{
+    height: 5%;
+    width: 5%;
+   
+}
+.image-display-modal__username{
+    font-size: 14px;
+}
 
 /* .image-display-modal__img-caption {
     display: none;

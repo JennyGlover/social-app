@@ -34,6 +34,7 @@ const profilePopup = container.querySelector('.modal');
 const profilePopupContainer = profilePopup.querySelector('.modal__container');
 const imageUploadPopup = container.querySelector('.image-upload-modal');
 const imageDisplayPopup = container.querySelector('.image-display-modal');
+const imageCaptionComment = imageDisplayPopup.querySelector('.image-display-modal__image-caption-comment');
 const displayImage = imageDisplayPopup.querySelector('.image-display-modal__image');
 const profilePopupCloseBtn = profilePopupContainer.querySelector(
   '.modal__close-button'
@@ -116,9 +117,11 @@ for (let data of placeHolderImages) {
 //Working on manipulating card images
 cardContainer.addEventListener("click", function(e){
  let imageContainer = e.target.closest(".card__content");
- let myImage = imageContainer.querySelector(".card__image")
+ let myImage = imageContainer.querySelector(".card__image");
+ let myCaption = imageContainer.querySelector(".card__comments");
  imageDisplayPopup.classList.add('image-display-modal__modal-opened');
  displayImage.src = myImage.src;
+ imageCaptionComment.textContent = myCaption.textContent;
 })
 
 imageDisplayPopupCloseBtn.addEventListener('click', function() {
@@ -146,6 +149,7 @@ function handleImageUpload(evt) { //func uploads new image from file
           .querySelector('#image-cards')
           .content.cloneNode(true);
         cardElement.querySelector('.card__image').src = e.target.result;
+        cardElement.querySelector('.card__comments').textContent = uploadedImageCaption.value;
         // cardElement.querySelector('.card__image').alt = `${data.name}`;
         // return cardElement;
         cardContainer.prepend(cardElement);
@@ -156,7 +160,7 @@ function handleImageUpload(evt) { //func uploads new image from file
         e.target.value = "";
         imageUploadbtn.removeEventListener('click', createCardWithImg );
         imageInput.value = "";
-
+        
       }
 
       imageUploadbtn.removeEventListener('click', createCardWithImg );

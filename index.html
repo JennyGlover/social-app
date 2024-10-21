@@ -221,8 +221,7 @@
           <textarea
             class="image-upload-modal__img-caption"
             placeholder="Add a caption to your image.."
-          >
-          </textarea>
+          ></textarea>
           <button class="image-upload-modal__button">Post Image</button>
         </div>
       </div>
@@ -233,14 +232,30 @@
         <div class="image-display-modal__image-container">
           <img src="" alt="upload image" class="image-display-modal__image" />
         </div>
-        <div class="image-display-modal__user-interaction-container">Hi</div>
+        <div class="image-display-modal__user-interaction-container">
+          <div class="image-display-modal__avatar-and-name-container">
+            <div class="image-display-modal__user-icon"></div>
+            <div class="image-display-modal__user-info">
+              <h4 class="image-display-modal__username">gameofthrones</h4>
+              <img
+                class="image-display-modal__verified-icon"
+                src="./images/Twitter_Verified_Badge_Gold.png"
+                alt="verified button"
+              />
+            </div>
+          </div>
+          <div class="image-display-modal__caption-comment-container">
+            <div class="image-display-modal__user-icon"></div>
+            <p class="image-display-modal__image-caption-comment"></p>
+          </div>
+        </div>
       </div>
     </section>
     <template class="card" id="image-cards">
       <div class="card__content">
         <div class="card__overlay">
           <p class="card__likes"></p>
-          <p class="card__comments"></p>
+          <p class="card__comments card__hidden"></p>
         </div>
         <div class="card__image-container">
           <img src="" alt="" class="card__image" />
