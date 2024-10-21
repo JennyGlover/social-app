@@ -52,6 +52,7 @@ const headerProfileType = header.querySelector('.header__profile-type');
 const headerUsername = header.querySelector('.header__username');
 const headerUsernameMenu = header.querySelector('.header__username-about-menu');
 const cardContainer = container.querySelector('.main__cards');
+const cardImage = cardContainer.querySelectorAll('.card__content');
 const uploadedImage = imageUploadPopup.querySelector(
   '.image-upload-modal__image'
 );
@@ -61,7 +62,9 @@ const imageUploadInput = imageUploadPopup.querySelector(
 const imageUploadbtn = imageUploadPopup.querySelector(
   '.image-upload-modal__button'
 );
-
+const uploadedImageCaption = imageUploadPopup.querySelector(
+  '.image-upload-modal__img-caption'
+);
 //listening for and opening and closing popup button
 profileEditBtn.addEventListener('click', function () {
   profilePopup.classList.add('modal__modal-opened');
@@ -105,21 +108,29 @@ for (let data of placeHolderImages) {
   cardContainer.append(getCardElement(data));
 }
 
-//function for uploading new image from file
-function handleImageUpload(evt) {
-  //trying to reset image - work on this//
+//Working on manipulating card images
+cardContainer.addEventListener("click", function(e){
+ let imageContainer = e.target.closest(".card__content");
+ let myImage = imageContainer.querySelector(".card__image")
+ console.log(myImage);
+ myImage.src = "../images/sansa.png";
+})
+
+function handleImageUpload(evt) { //func uploads new image from file
+  evt.preventDefault();
 
   const imageInput = evt.target;
-  //checking if there was a file uploaded
-  if (imageInput.files && imageInput.files[0]) {
-    const reader = new FileReader(); //ceating a new instance of the file reader
+  if (imageInput.files[0]) { // conditional check if there was a file uploaded
+    const reader = new FileReader();  //create new instance of the file reader
 
-    //setting the image src to the uploaded file
-    reader.onload = function (e) {
-      imageUploadbtn.classList.add('image-upload-modal__button_type_visible'); //making upload btn visible
-      uploadedImage.src = e.target.result; //changing the cam icon to the uploaded img
-      uploadedImage.classList.add('image-upload-modal__image-file'); //styling new img
-      imageUploadbtn.addEventListener('click', function () {
+    reader.onload = function (e) {   // func sets the image src to the uploaded file
+      e.preventDefault();
+      imageUploadbtn.classList.add('image-upload-modal__visible'); 
+      uploadedImage.src = e.target.result;    
+      uploadedImage.classList.add('image-upload-modal__image-file'); 
+      uploadedImageCaption.classList.add('image-upload-modal__visible');
+      //refactor this
+ function createCardWithImg  () { //func create new card with image
         imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
         const cardElement = document
           .querySelector('#image-cards')
@@ -129,24 +140,31 @@ function handleImageUpload(evt) {
         // return cardElement;
         cardContainer.prepend(cardElement);
         uploadedImage.src = '../images/upload image.jpg';
-        imageInput.value = '';
-        imageUploadbtn.classList.remove(
-          'image-upload-modal__button_type_visible'
-        );
+        // imageInput.value = '';
+        imageUploadbtn.classList.remove('image-upload-modal__visible');
         uploadedImage.classList.remove('image-upload-modal__image-file');
-      });
+        e.target.value = "";
+        imageUploadbtn.removeEventListener('click', createCardWithImg );
+        imageInput.value = "";
+
+      }
+
+      imageUploadbtn.removeEventListener('click', createCardWithImg );
+      imageUploadbtn.addEventListener('click', createCardWithImg );
+
     };
 
     //Reading the uploaded file as a data url
     reader.readAsDataURL(imageInput.files[0]);
-    uploadedImage.src = '../images/upload image.jpg';
-    e.target.result = '';
-    // reader.onloadend = function (){
-    //   // uploadedImage.src = '../images/upload image.jpg';
-    //   uploadedImage.classList.remove('image-upload-modal__image-file');
-    // imageUploadbtn.classList.remove('image-upload-modal__button_type_visible');
-    // }
+  
   }
+
 }
 
+
+
 imageUploadInput.addEventListener('change', handleImageUpload);
+
+
+//earlier when I split the function from the event listener, the image was not beinf reuploaded because the button was not cliked again
+//So I have to clear the even listeners on the button

@@ -13,8 +13,6 @@
 }
 
 .image-upload-modal__container {
-  height: 200px;
-  width: 200px;
   background-color: rgb(255, 255, 255);
   margin: auto;
   position: absolute;
@@ -22,8 +20,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 450px;
-  height: 540px;
-  border-radius: 20px;
+  height: 560px;
+  border-radius: 3px;
 }
 
 .image-upload-modal__close-button {
@@ -45,22 +43,6 @@
   font-weight: 600;
 }
 
-.image-upload-modal__image {
-  width: 50%;
-  opacity: 0.95;
-  padding-top: 10%;
-}
-
-/* Put this in div so it doesn't overflow */
-
-.image-upload-modal__image-file {
-  width: 80%;
-  border-radius: 2px;
-  opacity: 0.95;
-  padding-top: 0%;
-  margin-bottom: 30px;
-}
-
 .image-upload-modal__block {
   display: flex;
   flex-direction: column;
@@ -69,6 +51,53 @@
   height: 100%;
   padding-top: 10px;
 }
+.image-upload-modal__image-container{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 40%;
+ overflow: hidden;
+margin-bottom: 30px;
+}
+.image-upload-modal__image {
+  width: 40%;
+  opacity: 0.95;
+  padding-top: 10%;
+ 
+}
+
+
+/* Put this in div so it doesn't overflow */
+
+.image-upload-modal__image-file {
+  width: 80%;
+  border-radius: 5px;
+  opacity: 0.95;
+  padding-top: 0%;
+}
+
+
+.image-upload-modal__img-caption{
+  display: none;
+  width: 80%;
+  height: 80px;
+  border-radius: 2px;
+  opacity: 0.95;
+  margin-top: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.603);
+  padding: 0px;
+}
+
+.image-upload-modal__img-caption:focus {
+  border: 1.5px solid rgb(27, 142, 209); 
+  outline: none;
+}
+
+.image-upload-modal__img-caption::placeholder {
+  color: #000000c0;
+  opacity: 1;
+}
+
 
 .image-upload-modal__button {
   display: none;
@@ -94,10 +123,7 @@
   width: 250px;
 }
 
-.image-upload-modal__button_type_visible {
+.image-upload-modal__visible {
   display: block;
 }
 
-.red {
-  background-color: red;
-}

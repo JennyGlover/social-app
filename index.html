@@ -206,18 +206,38 @@
         <button class="image-upload-modal__close-button"></button>
         <div class="image-upload-modal__block">
           <p class="image-upload-modal__form-title">Upload a new image</p>
-          <img
-            src="images/upload image.jpg"
-            alt="upload image"
-            class="image-upload-modal__image"
-          />
+          <div class="image-upload-modal__image-container">
+            <img
+              src="images/upload image.jpg"
+              alt="upload image"
+              class="image-upload-modal__image"
+            />
+          </div>
           <input
             type="file"
             class="image-upload-modal__file-input"
             accept="image/*"
           />
+          <textarea
+            class="image-upload-modal__img-caption"
+            placeholder="Add a caption to your image.."
+          >
+          </textarea>
           <button class="image-upload-modal__button">Post Image</button>
         </div>
+      </div>
+    </section>
+    <section class="image-display-modal image-display-modal__visible">
+      <div class="image-display-modal__container">
+        <button class="image-display-modal__close-button"></button>
+        <div class="image-display-modal__image-container">
+          <img
+            src="images/the-iron-throne.png"
+            alt="upload image"
+            class="image-display-modal__image"
+          />
+        </div>
+        <div class="image-display-modal__user-interaction-container">Hi</div>
       </div>
     </section>
     <template class="card" id="image-cards">

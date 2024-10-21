@@ -1,0 +1,111 @@
+.image-display-modal {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.637);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-display-modal__modal-opened {
+    display: block;
+}
+
+.image-display-modal__container {
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 85%;
+    border-radius: 3px;
+    display: flex;
+}
+
+.image-display-modal__close-button {
+    border: none;
+    position: absolute;
+    right: -38px;
+    top: -30px;
+    background: url('../images/xmark-solid.svg') no-repeat center/cover;
+    width: 18px;
+    height: 18px;
+    opacity: 0.91;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+
+
+.image-display-modal__image-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+            min-width: 50%;
+    overflow: hidden;
+    background-color: black;
+}
+.image-display-modal__user-interaction-container{
+        min-width: 40%;
+        background-color: rgb(255, 255, 255);
+}
+
+.image-display-modal__image {
+    opacity: 0.95;
+   width: 100%;
+
+}
+
+
+
+/* .image-display-modal__img-caption {
+    display: none;
+    width: 80%;
+    height: 80px;
+    border-radius: 2px;
+    opacity: 0.95;
+    margin-top: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.603);
+    padding: 0px;
+} */
+
+/* .image-display-modal__img-caption:focus {
+    border: 1.5px solid rgb(27, 142, 209);
+    outline: none;
+} */
+
+/* .image-display-modal__img-caption::placeholder {
+    color: #000000c0;
+    opacity: 1;
+} */
+
+
+/* .image-upload-modal__button {
+    display: none;
+    padding: 2px 3%;
+    border: 0.5px solid rgba(0, 0, 0, 0.048);
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.014);
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    background-color: #2788e2;
+    color: rgba(255, 255, 255, 0.808);
+} */
+
+
+/* .image-upload-modal__file-input {
+    margin: 0 auto;
+    width: 250px;
+} */
+
+.image-display-modal__visible {
+    display: block;
+}
