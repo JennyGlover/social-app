@@ -33,7 +33,8 @@ const addPostBtn = header.querySelector('.header__button_add-post');
 const profilePopup = container.querySelector('.modal');
 const profilePopupContainer = profilePopup.querySelector('.modal__container');
 const imageUploadPopup = container.querySelector('.image-upload-modal');
-
+const imageDisplayPopup = container.querySelector('.image-display-modal');
+const displayImage = imageDisplayPopup.querySelector('.image-display-modal__image');
 const profilePopupCloseBtn = profilePopupContainer.querySelector(
   '.modal__close-button'
 );
@@ -43,6 +44,7 @@ const imageUploadPopupCloseBtn = imageUploadPopup.querySelector(
 const profileForm = profilePopupContainer.querySelector(
   '.modal__profile-edit-form'
 );
+const imageDisplayPopupCloseBtn = imageDisplayPopup.querySelector('.image-display-modal__close-button');
 const accountNameInput = profileForm.querySelector('.modal__username-input');
 const accountTypeInput = profileForm.querySelector('.modal__account-type');
 const accountBioInput = profileForm.querySelector('.modal__bio-input');
@@ -73,6 +75,9 @@ profileEditBtn.addEventListener('click', function () {
 profilePopupCloseBtn.addEventListener('click', function () {
   profilePopup.classList.remove('modal__modal-opened');
 });
+
+
+
 
 //listening for click on add post button
 addPostBtn.addEventListener('click', function () {
@@ -112,9 +117,14 @@ for (let data of placeHolderImages) {
 cardContainer.addEventListener("click", function(e){
  let imageContainer = e.target.closest(".card__content");
  let myImage = imageContainer.querySelector(".card__image")
- console.log(myImage);
- myImage.src = "../images/sansa.png";
+ imageDisplayPopup.classList.add('image-display-modal__modal-opened');
+ displayImage.src = myImage.src;
 })
+
+imageDisplayPopupCloseBtn.addEventListener('click', function() {
+  imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
+});
+
 
 function handleImageUpload(evt) { //func uploads new image from file
   evt.preventDefault();
@@ -160,7 +170,6 @@ function handleImageUpload(evt) { //func uploads new image from file
   }
 
 }
-
 
 
 imageUploadInput.addEventListener('change', handleImageUpload);
