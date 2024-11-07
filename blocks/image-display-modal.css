@@ -1,15 +1,17 @@
 .image-display-modal {
-    display: none;
+   visibility: hidden;
     background-color: rgba(0, 0, 0, 0.637);
-    position: fixed;
+    width: 100%;
+    height: 100%;  position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    opacity: 0;
+    transition: visibility 0.1s, opacity 0.5s ease-out;
 }
 
 .image-display-modal__modal-opened {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .image-display-modal__container {
@@ -53,8 +55,9 @@
 .image-display-modal__user-interaction-container{
         min-width: 40%;
         background-color: rgb(255, 255, 255);
-        padding: 15px;
-        
+        padding: 12px;   
+        padding-top: 20px;
+        position: relative;
 }
 
 .image-display-modal__image {
@@ -67,7 +70,8 @@
         padding: 18px;
         background-color: black;
         border-radius: 100%;
-        background: url('../images/got-avatar.jpg') no-repeat center/cover;       
+        background: url('../images/got-avatar.jpg') no-repeat center/cover;
+        
 }
 .image-display-modal__avatar-and-name-container{
     display: flex;
@@ -79,13 +83,16 @@
 .image-display-modal__caption-comment-container {
     display: flex;
     gap: 10px;
-    align-items: center;
+    align-items: flex-start;
+    height: 70%;
+    margin-bottom: 12px;
 }
 .image-display-modal__user-info{
     display: flex;
     align-items: center;
      gap: 5px;
 }
+
 
 .image-display-modal__verified-icon{
     height: 5%;
@@ -95,6 +102,48 @@
 .image-display-modal__username{
     font-size: 14px;
 }
+
+.image-display-modal__social-icons{
+
+}
+
+.image-display-modal__unliked-button{
+    width: 20px; 
+    height: 20px;
+    background-image: url("../images/heart-unliked.svg") ;
+    cursor: pointer;
+}
+
+.image-display-modal__delete-button{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 10;
+    right: 10;
+    opacity: 40%;
+}
+
+.image-display-modal__delete-button:hover {
+    opacity: 80%;
+}
+
+
+.image-display-modal__unliked-button:hover{
+    opacity: 50%;
+}
+
+
+.image-display-modal__liked-button {
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/heart-liked.svg");
+    cursor: pointer;
+   
+}
+
+
+
 
 /* .image-display-modal__img-caption {
     display: none;

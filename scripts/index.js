@@ -68,6 +68,40 @@ const imageUploadbtn = imageUploadPopup.querySelector(
 const uploadedImageCaption = imageUploadPopup.querySelector(
   '.image-upload-modal__img-caption'
 );
+
+const imageDisplayLikeButton = imageDisplayPopup.querySelector('.image-display-modal__unliked-button');
+const imageDisplayDeleteButton =  imageDisplayPopup.querySelector('.image-display-modal__delete-button');
+
+//liking displayed image
+imageDisplayLikeButton.addEventListener('click', function(){
+
+  imageDisplayLikeButton.classList.toggle('image-display-modal__liked-button');
+
+})
+
+//deleting displayed image
+imageDisplayDeleteButton.addEventListener('click', function(e){
+  let imageContainer = e.target.closest(".image-display-modal__container")
+  let displayedImg = imageContainer.querySelector(".image-display-modal__image");
+  let containerImages = Array.from(cardContainer.querySelectorAll('.card__image'));
+  
+  containerImages.forEach((image) => {
+    if(image.src === displayedImg.src){
+      let card = image.closest(".card__content");
+      let cards = Array.from(cardContainer.children);
+      
+      cards.forEach((item) => {
+         if(item == card){
+          item.remove();
+        }
+      })
+    }
+  })
+  
+  imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
+
+})
+
 //listening for and opening and closing popup button
 profileEditBtn.addEventListener('click', function () {
   profilePopup.classList.add('modal__modal-opened');
@@ -76,8 +110,6 @@ profileEditBtn.addEventListener('click', function () {
 profilePopupCloseBtn.addEventListener('click', function () {
   profilePopup.classList.remove('modal__modal-opened');
 });
-
-
 
 
 //listening for click on add post button
@@ -110,9 +142,10 @@ function getCardElement(data) {
 
 profileForm.addEventListener('submit', handleProfileSubmitForm);
 
-for (let data of placeHolderImages) {
+
+placeHolderImages.forEach((data) => {
   cardContainer.append(getCardElement(data));
-}
+})
 
 //Working on manipulating card images
 cardContainer.addEventListener("click", function(e){

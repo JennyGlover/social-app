@@ -1,15 +1,18 @@
 .image-upload-modal {
-  display: none;
+  visibility: hidden;
   background-color: rgba(0, 0, 0, 0.637);
-  position: fixed;
+  width: 100%;
+  height: 100%; position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  opacity: 0;
+  transition: visibility 0.1s, opacity 0.5s ease-out;
+
 }
 
 .image-upload-modal__modal-opened {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .image-upload-modal__container {
@@ -113,6 +116,7 @@ margin-bottom: 30px;
   background-color: #2788e2;
   color: rgba(255, 255, 255, 0.808);
 }
+
 
 .image-upload-modal__button:hover {
   background-color: #257dcf;
