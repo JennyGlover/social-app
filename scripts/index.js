@@ -89,7 +89,6 @@ imageDisplayDeleteButton.addEventListener('click', function(e){
     if(image.src === displayedImg.src){
       let card = image.closest(".card__content");
       let cards = Array.from(cardContainer.children);
-      
       cards.forEach((item) => {
          if(item == card){
           item.remove();
