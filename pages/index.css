@@ -49,6 +49,26 @@
   margin: auto;
 }
 
+/* place somewhere else  */
+.form__input-error{
+  display: none;
+}
+
+.form__input_type-error{
+ border: 1px solid red;
+}
+
+.form__input-error_active{
+  display: block;
+  font-size: 12px;
+  color: red;
+}
+.form__submit-btn_disabled{
+  background-color: rgb(209, 209, 209);
+  color: rgb(129, 127, 127);
+}
+
+
 @media screen and (max-width: 1280px) {
   .container {
     grid-template-columns: 1fr 6fr;

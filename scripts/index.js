@@ -45,6 +45,7 @@ const imageUploadPopupCloseBtn = imageUploadPopup.querySelector(
 const profileForm = profilePopupContainer.querySelector(
   '.modal__profile-edit-form'
 );
+const profileInputs = profileForm.querySelectorAll(".modal__form-input");
 const imageDisplayPopupCloseBtn = imageDisplayPopup.querySelector('.image-display-modal__close-button');
 const accountNameInput = profileForm.querySelector('.modal__username-input');
 const accountTypeInput = profileForm.querySelector('.modal__account-type');
@@ -72,7 +73,8 @@ const uploadedImageCaption = imageUploadPopup.querySelector(
 const imageDisplayLikeButton = imageDisplayPopup.querySelector('.image-display-modal__unliked-button');
 const imageDisplayDeleteButton =  imageDisplayPopup.querySelector('.image-display-modal__delete-button');
 
-//liking displayed image
+
+//liking displayed image (Make sure the like button like instance is different for each button)
 imageDisplayLikeButton.addEventListener('click', function(){
 
   imageDisplayLikeButton.classList.toggle('image-display-modal__liked-button');
@@ -98,7 +100,29 @@ imageDisplayDeleteButton.addEventListener('click', function(e){
   })
   
   imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
+        
+})
 
+//closing imageDisplayModal with click event (turn close logic into func)
+imageDisplayPopup.addEventListener('click', (e)=> {
+  if(e.target === imageDisplayPopup  ){
+   imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
+  }
+  
+})
+
+profilePopup.addEventListener('click', (e)=> {
+  if(e.target === profilePopup){
+   profilePopup.classList.remove('modal__modal-opened');
+  }
+  
+})
+
+imageUploadPopup.addEventListener('click', (e)=> {
+  if(e.target === imageUploadPopup){
+   imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
+  }
+  
 })
 
 //listening for and opening and closing popup button
@@ -140,6 +164,73 @@ function getCardElement(data) {
 }
 
 profileForm.addEventListener('submit', handleProfileSubmitForm);
+
+
+
+
+
+//validating profile form inputs
+
+   //showing validation error
+  const showInputError = (formElement, inputElement, errorMessage) => {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.add("form__input_type-error");
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add("form__input-error_active");
+
+  }
+
+  //hiding validation error
+  const hideInputError = (formElement, inputElement) => {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove("form__input_type-error");
+    errorElement.classList.remove("form__input-error_active");
+    errorElement.textContent = "";
+  
+  }
+
+  //checkingValidity
+  const checkInputValidity = (formElement, inputElement) => {
+    const submitBtn = formElement.querySelector(".form__submit-btn")
+    if(!inputElement.validity.valid){
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+      submitBtn.classList.add("form__submit-btn_disabled");
+      submitBtn.disabled = true;
+    }else{
+    
+       hideInputError(formElement, inputElement);
+       submitBtn.classList.remove("form__submit-btn_disabled");
+       submitBtn.disabled = false;
+    }
+  }
+
+ 
+
+
+  //settingEventListeners
+  const setEventListeners = (formElement) => {
+    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+    inputList.forEach((inputElement) =>{
+      inputElement.addEventListener('blur', () =>{
+       checkInputValidity(formElement, inputElement);
+      })
+      
+    })
+  }
+
+   //enablingValidation
+   const enableValidation = () => {
+    const formList = Array.from(document.querySelectorAll('.form'));
+
+    formList.forEach((formElement) => {
+      formElement.addEventListener('submit', function(evt){
+        evt.preventDefault();
+      });
+      setEventListeners(formElement);
+    })
+   }
+
+   enableValidation();
 
 
 placeHolderImages.forEach((data) => {
@@ -206,6 +297,7 @@ function handleImageUpload(evt) { //func uploads new image from file
   }
 
 }
+
 
 
 imageUploadInput.addEventListener('change', handleImageUpload);

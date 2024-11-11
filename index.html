@@ -118,36 +118,40 @@
     <section class="modal">
       <div class="modal__container">
         <button class="modal__close-button"></button>
-        <form class="modal__profile-edit-form">
+        <form class="form modal__profile-edit-form">
           <p class="modal__form-title">Edit Your Profile</p>
           <fieldset class="modal__inputs">
             <span class="modal__profile-item">
               <label
-                for="owner-account-name"
+                for="owner-username-input"
                 class="modal__input-label modal__account-name-label"
                 >Account name</label
               >
               <!-- change these tags to account name  -->
               <input
                 type="text"
-                id="owner-username"
+                id="owner-username-input"
                 name="owner-username"
-                class="modal__form-item modal__username-input"
+                class="modal__form-input modal__username-input form__input"
                 placeholder="Edit your account name"
                 required
                 minlength="6"
                 maxlength="13"
               />
-              <span class="modal__validation-text">hi</span>
+              <span
+                class="modal__input-error owner-username-input-error form__input-error"
+              ></span>
             </span>
             <span class="modal__profile-item">
-              <label class="modal__input-label modal__account-type-label"
+              <label
+                for="account-type-input"
+                class="modal__input-label modal__account-type-label"
                 >What best describes you?</label
               >
               <select
                 name="account-type"
-                id="account-type"
-                class="modal__form-item modal__account-type"
+                id="account-type-input"
+                class="modal__form-input modal__account-type form__input"
                 placeholder="select"
                 required
               >
@@ -181,32 +185,39 @@
                   Movie
                 </option>
               </select>
-              <span class="modal__validation-text">hi</span>
+              <span
+                class="modal__input-error account-type-input-error form__input-error"
+              ></span>
             </span>
             <span class="modal__profile-item">
               <label
-                for=" owner-bio"
+                for="owner-bio-input"
                 class="modal__input-label modal__bio-label"
                 >Bio</label
               >
               <textarea
                 type="text-area"
-                id="owner-bio"
+                id="owner-bio-input"
                 name="owner-bio"
-                class="modal__form-item modal__bio-input"
+                class="modal__form-input modal__bio-input form__input"
                 placeholder="What inspires you?"
                 required
                 minlength="10"
                 maxlength="110"
               ></textarea>
-              <span class="modal__validation-text">hi</span>
+              <span
+                class="modal__input-error owner-bio-input-error form__input-error"
+              ></span>
             </span>
           </fieldset>
-          <button type="submit" class="modal__form-button">Save</button>
+          <button type="submit" class="modal__form-button form__submit-btn">
+            Save
+          </button>
         </form>
       </div>
     </section>
     <section class="image-upload-modal">
+      <!-- put this in a form -->
       <div class="image-upload-modal__container">
         <button class="image-upload-modal__close-button"></button>
         <div class="image-upload-modal__block">

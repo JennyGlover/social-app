@@ -62,10 +62,6 @@
   height: 62%;
   border: none;
 }
-.modal__validation-text{
-  font-size: 12px;
-  color:red;
-}
 
 .modal__profile-item {
   display: flex;
@@ -73,7 +69,7 @@
   gap: 5px;
 }
 
-.modal__form-item {
+.modal__form-input {
   border-radius: 5px;
   background-color: rgba(175, 175, 175, 0);
   height: 42px;
@@ -81,7 +77,7 @@
   border: 1px solid rgba(0, 0, 0, 0.158);
 }
 
-.modal__form-item:focus {
+.modal__form-input:focus {
   border: 1.5px solid rgb(27, 142, 209);
   outline: none;
 }
