@@ -125,6 +125,22 @@ imageUploadPopup.addEventListener('click', (e)=> {
   
 })
 
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (imageUploadPopup.classList.contains('image-upload-modal__modal-opened')) {
+            imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
+        }
+        if (profilePopup.classList.contains('modal__modal-opened')) {
+            profilePopup.classList.remove('modal__modal-opened');
+        }
+        if (imageDisplayPopup.classList.contains('image-display-modal__modal-opened')) {
+            imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
+        }
+    }
+});
+
+
 //listening for and opening and closing popup button
 profileEditBtn.addEventListener('click', function () {
   profilePopup.classList.add('modal__modal-opened');
@@ -172,34 +188,34 @@ profileForm.addEventListener('submit', handleProfileSubmitForm);
 //validating profile form inputs
 
    //showing validation error
-  const showInputError = (formElement, inputElement, errorMessage) => {
+  const showInputError = (formElement, inputElement, errorMessage, data) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add("form__input_type-error");
+    inputElement.classList.add(data.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add("form__input-error_active");
+    errorElement.classList.add(data.errorClass);
 
   }
 
   //hiding validation error
-  const hideInputError = (formElement, inputElement) => {
+  const hideInputError = (formElement, inputElement, data) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove("form__input_type-error");
-    errorElement.classList.remove("form__input-error_active");
+    inputElement.classList.remove(data.inputErrorClass);
+    errorElement.classList.remove(data.errorClass);
     errorElement.textContent = "";
   
   }
 
   //checkingValidity
-  const checkInputValidity = (formElement, inputElement) => {
-    const submitBtn = formElement.querySelector(".form__submit-btn")
+  const checkInputValidity = (formElement, inputElement, data) => {
+    const submitBtn = formElement.querySelector(data.submitButtonSelector)
     if(!inputElement.validity.valid){
-      showInputError(formElement, inputElement, inputElement.validationMessage);
-      submitBtn.classList.add("form__submit-btn_disabled");
+      showInputError(formElement, inputElement, inputElement.validationMessage, data);
+      submitBtn.classList.add(data.inactiveButtonClass);
       submitBtn.disabled = true;
     }else{
     
-       hideInputError(formElement, inputElement);
-       submitBtn.classList.remove("form__submit-btn_disabled");
+       hideInputError(formElement, inputElement, data);
+       submitBtn.classList.remove(data.inactiveButtonClass);
        submitBtn.disabled = false;
     }
   }
@@ -208,29 +224,36 @@ profileForm.addEventListener('submit', handleProfileSubmitForm);
 
 
   //settingEventListeners
-  const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+  const setEventListeners = (formElement, data) => {
+    const inputList = Array.from(formElement.querySelectorAll(data.inputSelector));
     inputList.forEach((inputElement) =>{
       inputElement.addEventListener('blur', () =>{
-       checkInputValidity(formElement, inputElement);
+       checkInputValidity(formElement, inputElement, data);
       })
       
     })
   }
 
    //enablingValidation
-   const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.form'));
+   const enableValidation = (data) => {
+    const formList = Array.from(document.querySelectorAll(data.formSelector));
 
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', function(evt){
         evt.preventDefault();
       });
-      setEventListeners(formElement);
+      setEventListeners(formElement, data);
     })
    }
 
-   enableValidation();
+   enableValidation({
+    formSelector: ".form",
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__submit-btn",
+    inactiveButtonClass: "form__submit-btn_disabled",
+    inputErrorClass: "form__input_type-error",
+    errorClass: "form__input-error_active"
+   });
 
 
 placeHolderImages.forEach((data) => {
