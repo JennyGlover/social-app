@@ -1,27 +1,36 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 const placeHolderImages = [
+ 
   {
     name: 'Sansa',
     link: './images/sansa.png',
+    comment: 'Queen Sansa of the North'
   },
   {
     name: 'Mother of Dragons',
     link: './images/mother-of-dragons.webp',
+    comment: 'The true ruler'
   },
   {
     name: 'John Snow',
     link: './images/john-snow.png',
+    comment: 'The peoples chosen one'
   },
   {
     name: 'Uncle & Niece',
     link: './images/uncle-niece.png',
+    comment: 'Family that will end it all'
   },
   {
     name: 'lord Stark',
     link: './images/lord-stark.png',
+    comment: 'Where it all began'
   },
   {
     name: 'The Army',
     link: './images/the-army.png',
+    comment: 'The dragon army'
   },
 ];
 
@@ -70,6 +79,8 @@ const uploadedImageCaption = imageUploadPopup.querySelector(
   '.image-upload-modal__img-caption'
 );
 
+
+
 const imageDisplayLikeButton = imageDisplayPopup.querySelector('.image-display-modal__unliked-button');
 const imageDisplayDeleteButton =  imageDisplayPopup.querySelector('.image-display-modal__delete-button');
 
@@ -80,6 +91,7 @@ imageDisplayLikeButton.addEventListener('click', function(){
   imageDisplayLikeButton.classList.toggle('image-display-modal__liked-button');
 
 })
+
 
 //deleting displayed image
 imageDisplayDeleteButton.addEventListener('click', function(e){
@@ -170,97 +182,31 @@ function handleProfileSubmitForm(evt) {
   profilePopup.classList.remove('modal__modal-opened');
 }
 
-function getCardElement(data) {
-  const cardElement = document
-    .querySelector('#image-cards')
-    .content.cloneNode(true);
-  cardElement.querySelector('.card__image').src = `${data.link}`;
-  cardElement.querySelector('.card__image').alt = `${data.name}`;
-  return cardElement;
-}
+
 
 profileForm.addEventListener('submit', handleProfileSubmitForm);
 
-
-
-
-
-//validating profile form inputs
-
-   //showing validation error
-  const showInputError = (formElement, inputElement, errorMessage, data) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(data.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(data.errorClass);
-
-  }
-
-  //hiding validation error
-  const hideInputError = (formElement, inputElement, data) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(data.inputErrorClass);
-    errorElement.classList.remove(data.errorClass);
-    errorElement.textContent = "";
-  
-  }
-
-  //checkingValidity
-  const checkInputValidity = (formElement, inputElement, data) => {
-    const submitBtn = formElement.querySelector(data.submitButtonSelector)
-    if(!inputElement.validity.valid){
-      showInputError(formElement, inputElement, inputElement.validationMessage, data);
-      submitBtn.classList.add(data.inactiveButtonClass);
-      submitBtn.disabled = true;
-    }else{
-    
-       hideInputError(formElement, inputElement, data);
-       submitBtn.classList.remove(data.inactiveButtonClass);
-       submitBtn.disabled = false;
-    }
-  }
-
- 
-
-
-  //settingEventListeners
-  const setEventListeners = (formElement, data) => {
-    const inputList = Array.from(formElement.querySelectorAll(data.inputSelector));
-    inputList.forEach((inputElement) =>{
-      inputElement.addEventListener('blur', () =>{
-       checkInputValidity(formElement, inputElement, data);
-      })
-      
-    })
-  }
-
-   //enablingValidation
-   const enableValidation = (data) => {
-    const formList = Array.from(document.querySelectorAll(data.formSelector));
-
-    formList.forEach((formElement) => {
-      formElement.addEventListener('submit', function(evt){
-        evt.preventDefault();
-      });
-      setEventListeners(formElement, data);
-    })
-   }
-
-   enableValidation({
-    formSelector: ".form",
+const validationData = {
+ formSelector: ".form",
     inputSelector: ".form__input",
     submitButtonSelector: ".form__submit-btn",
     inactiveButtonClass: "form__submit-btn_disabled",
     inputErrorClass: "form__input_type-error",
     errorClass: "form__input-error_active"
-   });
+   };
 
+//validating forms
+const formValidator = new FormValidator(validationData);
+formValidator.enableValidation();
 
+//creating cards with placeholder images
 placeHolderImages.forEach((data) => {
-  cardContainer.append(getCardElement(data));
+  const cardElement = new Card(data, '#image-cards')
+
+  cardContainer.append(cardElement.getCardElement());
 })
 
-//Working on manipulating card images
+//opening card popup
 cardContainer.addEventListener("click", function(e){
  let imageContainer = e.target.closest(".card__content");
  let myImage = imageContainer.querySelector(".card__image");
@@ -285,20 +231,18 @@ function handleImageUpload(evt) { //func uploads new image from file
     reader.onload = function (e) {   // func sets the image src to the uploaded file
       e.preventDefault();
       imageUploadbtn.classList.add('image-upload-modal__visible'); 
+
       uploadedImage.src = e.target.result;    
       uploadedImage.classList.add('image-upload-modal__image-file'); 
       uploadedImageCaption.classList.add('image-upload-modal__visible');
       //refactor this
  function createCardWithImg  () { //func create new card with image
         imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
-        const cardElement = document
-          .querySelector('#image-cards')
-          .content.cloneNode(true);
-        cardElement.querySelector('.card__image').src = e.target.result;
-        cardElement.querySelector('.card__comments').textContent = uploadedImageCaption.value;
-        // cardElement.querySelector('.card__image').alt = `${data.name}`;
-        // return cardElement;
-        cardContainer.prepend(cardElement);
+
+  const uploadedCard = new Card({name:'hi', link: e.target.result, comment: uploadedImageCaption.value }, "#image-cards");
+
+         cardContainer.prepend(uploadedCard.getCardElement());
+      
         uploadedImage.src = '../images/upload image.jpg';
         // imageInput.value = '';
         imageUploadbtn.classList.remove('image-upload-modal__visible');
