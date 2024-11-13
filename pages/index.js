@@ -1,5 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
+
 const placeHolderImages = [
  
   {
@@ -199,12 +201,31 @@ const validationData = {
 const formValidator = new FormValidator(validationData);
 formValidator.enableValidation();
 
-//creating cards with placeholder images
-placeHolderImages.forEach((data) => {
-  const cardElement = new Card(data, '#image-cards')
 
-  cardContainer.append(cardElement.getCardElement());
-})
+//creating an instance of the section class
+const section = new Section(
+  {
+    items: placeHolderImages,
+    renderer: (data) => {
+      const card = new Card(data, '#image-cards').getCardElement();
+      section.addItem(card);
+    }
+  },
+  '.main__cards'
+)
+
+section.renderItems();
+
+
+// //creating cards with placeholder images
+// placeHolderImages.forEach((data) => {
+//   const cardElement = new Card(data, '#image-cards')
+
+//   cardContainer.append(cardElement.getCardElement());
+// })
+
+
+
 
 //opening card popup
 cardContainer.addEventListener("click", function(e){

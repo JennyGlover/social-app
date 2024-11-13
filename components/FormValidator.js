@@ -38,7 +38,6 @@ _hideInputError(formElement, inputElement){
     }
   }
 
-
  _setEventListeners(formElement){
     const inputList = Array.from(formElement.querySelectorAll(this._data.inputSelector));
     inputList.forEach((inputElement) =>{
