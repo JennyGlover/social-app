@@ -1,6 +1,9 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 
 const placeHolderImages = [
  
@@ -95,6 +98,12 @@ imageDisplayLikeButton.addEventListener('click', function(){
 })
 
 
+//popup instance for opening image display modal
+const popupWithImage = new PopupWithImage('.image-display-modal', 'image-display-modal__modal-opened', imageDisplayPopupCloseBtn, cardContainer, displayImage, imageCaptionComment);
+popupWithImage.open()
+popupWithImage.setEventListeners()
+
+
 //deleting displayed image
 imageDisplayDeleteButton.addEventListener('click', function(e){
   let imageContainer = e.target.closest(".image-display-modal__container")
@@ -113,24 +122,39 @@ imageDisplayDeleteButton.addEventListener('click', function(e){
     }
   })
   
-  imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
-        
+  popupWithImage.close();
 })
 
-//closing imageDisplayModal with click event (turn close logic into func)
-imageDisplayPopup.addEventListener('click', (e)=> {
-  if(e.target === imageDisplayPopup  ){
-   imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
-  }
-  
-})
+//Creating a new instance of userInfo class
+const userInfo = new UserInfo(
+  '.header__username-about-menu',
+   '.header__username',
+   '.header__profile-type',
+   '.header__profile-bio' );
 
-profilePopup.addEventListener('click', (e)=> {
-  if(e.target === profilePopup){
-   profilePopup.classList.remove('modal__modal-opened');
-  }
-  
-})
+
+//function for submitting profile form
+function handleProfileSubmitForm(data) {
+  userInfo.setUserInfo({
+    nameMenu: data['owner-username'],
+    name: data['owner-username'],
+    accountType: data['account-type'],
+    bio: data['owner-bio']
+  })
+
+
+}
+
+const popupWithForm = new PopupWithForm(
+  '.modal',
+   'modal__modal-opened',
+    profilePopupCloseBtn,
+     handleProfileSubmitForm,
+     userInfo.getUserInfo.bind(userInfo)
+    );
+
+popupWithForm.setEventListeners();
+
 
 imageUploadPopup.addEventListener('click', (e)=> {
   if(e.target === imageUploadPopup){
@@ -145,24 +169,9 @@ document.addEventListener('keydown', (e) => {
         if (imageUploadPopup.classList.contains('image-upload-modal__modal-opened')) {
             imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
         }
-        if (profilePopup.classList.contains('modal__modal-opened')) {
-            profilePopup.classList.remove('modal__modal-opened');
-        }
-        if (imageDisplayPopup.classList.contains('image-display-modal__modal-opened')) {
-            imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
-        }
     }
 });
 
-
-//listening for and opening and closing popup button
-profileEditBtn.addEventListener('click', function () {
-  profilePopup.classList.add('modal__modal-opened');
-});
-
-profilePopupCloseBtn.addEventListener('click', function () {
-  profilePopup.classList.remove('modal__modal-opened');
-});
 
 
 //listening for click on add post button
@@ -174,19 +183,7 @@ imageUploadPopupCloseBtn.addEventListener('click', function () {
   imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
 });
 
-//function for submitting profile form
-function handleProfileSubmitForm(evt) {
-  evt.preventDefault();
-  headerUsernameMenu.textContent = accountNameInput.value;
-  headerUsername.textContent = accountNameInput.value;
-  headerProfileType.textContent = accountTypeInput.value;
-  headerBio.textContent = accountBioInput.value;
-  profilePopup.classList.remove('modal__modal-opened');
-}
 
-
-
-profileForm.addEventListener('submit', handleProfileSubmitForm);
 
 const validationData = {
  formSelector: ".form",
@@ -216,30 +213,6 @@ const section = new Section(
 
 section.renderItems();
 
-
-// //creating cards with placeholder images
-// placeHolderImages.forEach((data) => {
-//   const cardElement = new Card(data, '#image-cards')
-
-//   cardContainer.append(cardElement.getCardElement());
-// })
-
-
-
-
-//opening card popup
-cardContainer.addEventListener("click", function(e){
- let imageContainer = e.target.closest(".card__content");
- let myImage = imageContainer.querySelector(".card__image");
- let myCaption = imageContainer.querySelector(".card__comments");
- imageDisplayPopup.classList.add('image-display-modal__modal-opened');
- displayImage.src = myImage.src;
- imageCaptionComment.textContent = myCaption.textContent;
-})
-
-imageDisplayPopupCloseBtn.addEventListener('click', function() {
-  imageDisplayPopup.classList.remove('image-display-modal__modal-opened');
-});
 
 
 function handleImageUpload(evt) { //func uploads new image from file
