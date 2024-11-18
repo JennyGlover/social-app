@@ -4,37 +4,44 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import './index.css'
+import sansaImage from '../images/sansa.png';
+import motherOfDragonsImage from '../images/mother-of-dragons.webp';
+import johnSnowImage from '../images/john-snow.png';
+import uncleNieceImage from '../images/uncle-niece.png';
+import lordStarkImage from '../images/lord-stark.png';
+import theArmyImage from '../images/the-army.png';
 
 const placeHolderImages = [
  
   {
     name: 'Sansa',
-    link: './images/sansa.png',
+    link: sansaImage,
     comment: 'Queen Sansa of the North'
   },
   {
     name: 'Mother of Dragons',
-    link: './images/mother-of-dragons.webp',
+    link: motherOfDragonsImage,
     comment: 'The true ruler'
   },
   {
     name: 'John Snow',
-    link: './images/john-snow.png',
+    link: johnSnowImage,
     comment: 'The peoples chosen one'
   },
   {
     name: 'Uncle & Niece',
-    link: './images/uncle-niece.png',
+    link: uncleNieceImage,
     comment: 'Family that will end it all'
   },
   {
     name: 'lord Stark',
-    link: './images/lord-stark.png',
+    link: lordStarkImage,
     comment: 'Where it all began'
   },
   {
     name: 'The Army',
-    link: './images/the-army.png',
+    link: theArmyImage,
     comment: 'The dragon army'
   },
 ];

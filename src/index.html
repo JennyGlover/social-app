@@ -3,7 +3,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Social App</title>
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="container">
     <nav class="sidebar">
@@ -62,7 +61,7 @@
               <h2 class="header__username-about-menu">gameofthrones</h2>
               <img
                 class="header__verified-icon"
-                src="./images/Twitter_Verified_Badge_Gold.png"
+                src="<%=require('./images/Twitter_Verified_Badge_Gold.png')%>"
                 alt="verified button"
             /></span>
             <button class="header__button header__button_edit-profile">
@@ -224,7 +223,7 @@
           <p class="image-upload-modal__form-title">Upload a new image</p>
           <div class="image-upload-modal__image-container">
             <img
-              src="images/upload image.jpg"
+              src="<%=require('./images/upload image.jpg')%>"
               alt="upload image"
               class="image-upload-modal__image"
             />
@@ -255,7 +254,7 @@
               <h4 class="image-display-modal__username">gameofthrones</h4>
               <img
                 class="image-display-modal__verified-icon"
-                src="./images/Twitter_Verified_Badge_Gold.png"
+                src="<%=require('./images/Twitter_Verified_Badge_Gold.png')%>"
                 alt="verified button"
               />
             </div>
@@ -268,7 +267,7 @@
             <div class="image-display-modal__unliked-button"></div>
           </div>
           <img
-            src="./images/trash-solid.svg"
+            src="<%=require('./images/trash-solid.svg')%>"
             alt="delete icon"
             class="image-display-modal__delete-button"
           />
@@ -289,7 +288,5 @@
     <footer class="footer">
       <p class="footer__text">© 2024 Social App</p>
     </footer>
-
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
