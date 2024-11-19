@@ -11,6 +11,8 @@ import johnSnowImage from '../images/john-snow.png';
 import uncleNieceImage from '../images/uncle-niece.png';
 import lordStarkImage from '../images/lord-stark.png';
 import theArmyImage from '../images/the-army.png';
+import defaultCamera from '../images/upload image.jpg';
+import Api from "../components/Api.js";
 
 const placeHolderImages = [
  
@@ -90,6 +92,35 @@ const imageUploadbtn = imageUploadPopup.querySelector(
 const uploadedImageCaption = imageUploadPopup.querySelector(
   '.image-upload-modal__img-caption'
 );
+const userInfo = new UserInfo(
+  '.header__username-about-menu',
+   '.header__username',
+   '.header__profile-type',
+   '.header__profile-bio' );
+
+const api = new Api({
+    baseUrl: "https://around-api.en.tripleten-services.com/v1",
+    headers:{
+      authorization: "156f0753-536e-4aa7-b9b3-bc8ccb6104cb",
+      "Content-Type": "application/json"
+    }
+});
+
+
+api.getUserInfo()
+  .then((data) => {
+    console.log("User Info:", data);
+    userInfo.setUserInfo({
+        nameMenu: data.name,
+        name: data.name,
+        accountType: 'Personal Blog', // Assuming account type is static here; adjust if needed
+        bio: data.about,
+    })
+  })
+  .catch((err) => {
+    console.log('Error in fetching user info:', err)
+  })
+
 
 
 
@@ -133,11 +164,6 @@ imageDisplayDeleteButton.addEventListener('click', function(e){
 })
 
 //Creating a new instance of userInfo class
-const userInfo = new UserInfo(
-  '.header__username-about-menu',
-   '.header__username',
-   '.header__profile-type',
-   '.header__profile-bio' );
 
 
 //function for submitting profile form
@@ -149,8 +175,24 @@ function handleProfileSubmitForm(data) {
     bio: data['owner-bio']
   })
 
+  const updatedData = {
+    name: data['owner-username'],
+    about: data['owner-bio']
+  };
 
+   api.updateUserInfo(updatedData)
+    .then((res) => {
+      console.log('Profile updated sucessfully:', res);
+    })
+    .catch((err) => {
+      console.error('Error updating profile:', err);
+    });
 }
+
+
+
+
+
 
 const popupWithForm = new PopupWithForm(
   '.modal',
@@ -240,11 +282,26 @@ function handleImageUpload(evt) { //func uploads new image from file
  function createCardWithImg  () { //func create new card with image
         imageUploadPopup.classList.remove('image-upload-modal__modal-opened');
 
-  const uploadedCard = new Card({name:'hi', link: e.target.result, comment: uploadedImageCaption.value }, "#image-cards");
+  const uploadedCard = new Card({
+    name:'hi',
+     link: e.target.result,
+     comment: uploadedImageCaption.value
+     }, "#image-cards");
 
+  const updatedCard = {
+    name: 'hi',
+    link: e.target.result
+  };
+       
          cardContainer.prepend(uploadedCard.getCardElement());
-      
-        uploadedImage.src = '../images/upload image.jpg';
+        api.updateCards(updatedCard)
+           .then((res) => {
+      console.log('cards updated sucessfully:', res);
+    })
+    .catch((err) => {
+      console.error('Error updating cards:', err);
+    });
+        uploadedImage.src = defaultCamera;
         // imageInput.value = '';
         imageUploadbtn.classList.remove('image-upload-modal__visible');
         uploadedImage.classList.remove('image-upload-modal__image-file');
