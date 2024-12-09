@@ -3,7 +3,7 @@
 
 ![Project screenshot](src/images/Socialappimg2.png)
 
-![Project screenshot](src/images/Socialappimg3.png)
+![Project screenshot](src/images/socialapp3.png)
 
 
 **View Live Site**
