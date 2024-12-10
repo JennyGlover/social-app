@@ -1,8 +1,6 @@
 
 # **SOCIAL APP** 🚧 *In Progress*
 
-**View Live Site**
-https://jennyglover.github.io/social-app/
 
 ![Project screenshot](src/images/Socialappimg.png)
 
