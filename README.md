@@ -3,9 +3,6 @@
 
 
 ![Project screenshot](src/images/Socialappimg.png)
-
-![Project screenshot](src/images/Socialappimg2.png)
-
 ![Project screenshot](src/images/socialapp3.png)
 
 This **Social App** is a modular, scalable application inspired by instagram and designed with a structured JavaScript architecture. Key features include:
